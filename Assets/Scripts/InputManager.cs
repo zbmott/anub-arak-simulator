@@ -11,4 +11,9 @@ public class InputManager : MonoBehaviour
     {
         return Input.GetKey(keyName);
     }
+
+    public bool GetKeyUp(string keyName)
+    {
+        return Input.GetKeyUp(keyName);
+    }
 }

@@ -30,8 +30,6 @@ public class GlobalState : MonoBehaviour
     public GameObject bopIcon;
     public GameObject nitroIcon;
 
-    private bool isRestarting = false;
-    
     void Start()
     {
         PauseGame();
@@ -68,10 +66,10 @@ public class GlobalState : MonoBehaviour
                 }
                 break;
             case GameState.Completed:
-                if (!isRestarting)
+                if (inputManager.GetKeyUp("w"))
                 {
                     StopAllCoroutines();
-                    StartCoroutine(RestartGame(5));
+                    RestartGame();
                 }
                 break;
                 
@@ -153,7 +151,7 @@ public class GlobalState : MonoBehaviour
         }
         
         loseText.text = $"You lose! You kited Anub'arak into an ice patch the tanks use during phase 1.\n\n"
-                        + $"{alliesRemainingStr}\n\nChaos reigns!\n\nThe game will reload in 5 seconds.";
+                        + $"{alliesRemainingStr}\n\nChaos reigns!\n\nPress 'w' to try again.";
         overlay.SetActive(true);
         loseText.gameObject.SetActive(true);
     }
@@ -169,7 +167,7 @@ public class GlobalState : MonoBehaviour
         }
         
         loseText.text = $"You lose! Anub'arak impaled you to death!\n\n{alliesRemainingStr}\n\nYou "
-                        + $"survived for {elapsedTime:F1} seconds.\n\nThe game will reload in 5 seconds.";
+                        + $"survived for {elapsedTime:F1} seconds.\n\nPress 'w' to try again.";
         overlay.SetActive(true);
         loseText.gameObject.SetActive(true);
     }
@@ -178,15 +176,13 @@ public class GlobalState : MonoBehaviour
     {
         CompleteGame();
 
-        winText.text =$"You win!\n\nYou survived for {elapsedTime:F1} seconds!\n\n{alliesRemaining:D} of your allies survived!\n\nThe game will reload in 5 seconds.";
+        winText.text =$"You win!\n\nYou survived for {elapsedTime:F1} seconds!\n\n{alliesRemaining:D} of your allies survived!\n\nPress 'w' to try again.";
         overlay.SetActive(true);
         winText.gameObject.SetActive(true);
     }
 
-    public IEnumerator RestartGame(int delay)
+    public void RestartGame()
     {
-        isRestarting = true;
-        yield return new WaitForSecondsRealtime(delay);
         SceneManager.LoadScene("MainScene");
     }
 }
