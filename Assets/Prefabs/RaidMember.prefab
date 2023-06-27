@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2297705657094371906}
   - component: {fileID: 1803537583059532228}
   - component: {fileID: 6492790406624267475}
-  - component: {fileID: 6328740194519648139}
+  - component: {fileID: 6446508388699019305}
   m_Layer: 0
   m_Name: RaidMember
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -25
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   startLocation: {x: 0, y: 0, z: 0}
   destination: {x: 0, y: 0}
   currentState: 1
---- !u!50 &6328740194519648139
+--- !u!50 &6446508388699019305
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

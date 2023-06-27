@@ -24,11 +24,11 @@ public struct SpeedUp
 public class AnubArak : MonoBehaviour
 {
     
-    public float baseRunSpeed = 5.0f;
+    public float baseRunSpeed = 3.5f;
     public float pixelsPerYard = 7.0f;
     public float speedCoefficient = 1.0f;
     
-    public SpeedUp speedUp = new(4.0f, 0.5f);
+    public SpeedUp speedUp = new(5.0f, 1.0f);
 
     private GameObject target;
     private Rigidbody2D rigidBody;
