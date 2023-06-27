@@ -178,11 +178,20 @@ public class GlobalState : MonoBehaviour
     {
         CompleteGame();
 
-        winText.text =$"You win!\n\nYou survived for {elapsedTime:F1} seconds!\n\n{alliesRemaining:D} of your allies survived!\n\nThe game will reload in 5 seconds.";
+        winText.text = $"You win!\n\nYou survived for {elapsedTime:F1} seconds!\n\n{alliesRemaining:D} of your allies survived!\n\nThe game will reload in 5 seconds.";
         overlay.SetActive(true);
         winText.gameObject.SetActive(true);
     }
 
+    public void WinBecauseOnePointOh()
+    {
+        CompleteGame();
+
+        winText.text = $"You win!\n\nYou survived for {elapsedTime:F1} seconds!\n\n{alliesRemaining:D} of your allies survived!\n\nThe game will reload in 5 seconds.";
+        overlay.SetActive(true);
+        winText.gameObject.SetActive(true);
+    }
+    
     public IEnumerator RestartGame(int delay)
     {
         isRestarting = true;
