@@ -42,25 +42,25 @@ public class RaidMember : MonoBehaviour
 
     void HandleDeciding()
     {
-      //  if (Random.value <= 0.33f)
-      //  {
-      //      StartCoroutine(Wait(2));
-      //  }
-      //  else
-      //  {
+        if (Random.value <= 0.33f)
+        {
+            StartCoroutine(Wait(2));
+        }
+        else
+        {
             destination = Random.insideUnitCircle;
 
-          //  if ((transform.position - startLocation).magnitude >= 1.0f)
-          //  {
-          //      destination += (Vector2) startLocation;
-          //  }
-          //  else
-          //  {
+            if ((transform.position - startLocation).magnitude >= 1.0f)
+            {
+                destination += (Vector2) startLocation;
+            }
+            else
+            {
                 destination += (Vector2) transform.position;
-          //  }
+            }
 
             currentState = RaidMemberState.Active;
-       // }
+        }
 
     }
     

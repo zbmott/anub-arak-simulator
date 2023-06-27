@@ -99,11 +99,10 @@ public class AnubArak : MonoBehaviour
         var icePatch = other.gameObject.GetComponent<IcePatch>();
         if (icePatch is not null && dunkHitBox.IsTouching(other))
         {
-            if (icePatch.isTankingPatch) { globalState.LoseBecauseTankPatch(); return; }
-
-            globalState.WinBecauseOnePointOh();
+            if (icePatch.isTankingPatch) { globalState.LoseBecauseTankPatch(); }
+            
             Destroy(icePatch.gameObject);
-            // StartCoroutine(Stun(2));
+            StartCoroutine(Stun(2));
         }
 
         var raidMember = other.gameObject.GetComponent<RaidMember>();
